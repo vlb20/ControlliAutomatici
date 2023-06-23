@@ -1,0 +1,5 @@
+syms s
+num=sym2poly(1+s);
+den=sym2poly(s*(1+));
+L=tf(20,den)
+margin(L)

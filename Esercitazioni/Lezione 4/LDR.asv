@@ -1,0 +1,19 @@
+%%% LDR 1/(s+1)
+% syms s %variabile simbolica in s
+% L=tf(1,[1 1]);
+% rlocus(L)
+
+%%% LDR 1/s(s+4)
+% syms s
+% num=1;
+% den=sym2poly(s*(s+4));
+% L=tf(num,den);
+% rlocus(L)
+
+%%% LDR k/32* 1/s((s^
+num=1;
+den=sym2poly(s*((s^2/32)+(s/4)+1));
+rho=1/32;
+L=tf(rho*num,den);
+
+%rlocus(L)

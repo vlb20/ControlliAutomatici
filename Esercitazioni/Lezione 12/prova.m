@@ -1,0 +1,23 @@
+%%% Esercizio 3
+
+% 1/mu<= 0.05 -> mu>= 20 -> mu=25
+% L'(s) = 25/s
+% w_cmax=50 -> ci mettiamo a w_c=5
+% L''(s) = 5/s
+syms s
+
+den_G=sym2poly((1+s)*(1+0.1*s));
+G=tf(2,den_G);
+
+denL=sym2poly(s*(1+10*s));
+numL=sym2poly(1+2*s);
+L=tf(25*numL,denL);
+margin(L)
+
+%scegliamo R(s)=12.5/s * [(1+2s)(1+s)]/(1+10s)
+num_R=sym2poly((1+2*s)*(1+s));
+den_R=sym2poly(s*(1+10*s)*(1+0.001*s));
+R=tf(12.5*num_R,den_R);
+
+L=R*G;
+margin(L)
